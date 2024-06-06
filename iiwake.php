@@ -1,7 +1,7 @@
 [root@server ~]# cat /var/www/html/shop.php
 <?php
   $res = "";
-  $pdo = new PDO('mysql:host=127.0.0.1;dbname=testdb', 'root', 'admin');
+  $dbconn = pg_connect("host=localhost dbname=suzuchoco user=haru0986 password=MuRLfuju") or die('Could not connect: ' . pg_last_error());
   $sql = "select * from iiwake_naiyou where month=?";
   $stmt = $pdo->prepare($sql);
   $array = array($_GET{'month'});
